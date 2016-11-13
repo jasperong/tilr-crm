@@ -25,10 +25,6 @@
   <%= @contact.company %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @contact.user %>
-</p>
 
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', user_contacts_path %>
+<%= link_to 'Edit', edit_user_contact_path(@user, @contact) %> |
+<%= link_to 'Back', user_contacts_path(@user) %>
