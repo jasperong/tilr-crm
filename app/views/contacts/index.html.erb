@@ -2,14 +2,14 @@
   <div class="col-md-12">
     <div class="panel panel-profile">
       <div class="panel-heading overflow-h">
-        <h2 class="panel-title heading-sm pull-left"><i class="fa fa-vcard-o" aria-hidden="true"></i>Contacts</h2>
-        <%= link_to 'New Contact', new_user_contact_path(@user), class:"btn-u btn-brd btn-brd-hover btn-u-dark btn-u-xs pull-right" %>
+        <h2 class="panel-title heading-sm pull-left"><i class="fa fa-vcard-o" aria-hidden="true"></i> Contacts</h2>
+        <%= link_to 'New Contact', new_user_contact_path(@user), class:"btn btn-default btn-sm pull-right" %>
       </div>
       <div class="panel-body">
         <div class="row">
           <% @contacts.each do |contact| %>
             <div class="col-md-4">
-              <a href=<%= edit_user_contact_path(@user, contact) %>>
+              <a href=<%= user_contact_path(@user, contact) %>>
                 <div  class="profile-blog blog-border">
                   <%= image_tag contact.avatar.url(:thumb), class: "rounded-x" %>
                   <div class="name">

@@ -1,28 +1,37 @@
+<div class="container profile">
+    <div class="panel panel-profile">
+      <div class="panel-heading overflow-h">
+        <h2 class="panel-title heading-sm pull-left"><%= "#{@contact.first_name} #{@contact.last_name}" %></h2>
+        <%= link_to 'Delete', user_contact_path(@user, @contact), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger btn-xs pull-right" %>
+        <%= link_to 'Edit', edit_user_contact_path(@user, @contact), class:"btn btn-primary btn-xs pull-right" %>
+      </div>
+      <div class="panel-body">
+        <div class="col-md-4">
+          <%= image_tag @contact.avatar.url(:square), class: "rounded-x" %>
+        </div>
+        <div class="col-md-8">
+          <div  class="profile-blog blog-border">
+            <div class="clearfix margin-bottom-20"></div>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                <%= @contact.email %>
+              </li>
+              <li class="list-group-item">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <%= number_to_phone(@contact.phone_number) %>
+              </li>
+              <li class="list-group-item">
+                <i class="fa fa-building-o" aria-hidden="true"></i>
+                <%= @contact.company.capitalize %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<p>
-  <strong>First name:</strong>
-  <%= @contact.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @contact.last_name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @contact.email %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @contact.phone_number %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @contact.company %>
-</p>
 
 
 <%= link_to 'Edit', edit_user_contact_path(@user, @contact) %> |
