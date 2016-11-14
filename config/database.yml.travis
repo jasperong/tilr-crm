@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: tilr-crm_development
+
+test:
+  <<: *default
+  database: tilr-crm_test
+
+production:
+  <<: *default
+  database: tilr-crm_developement
