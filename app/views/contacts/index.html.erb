@@ -6,6 +6,10 @@
         <%= link_to 'New Contact', new_user_contact_path(@user), class:"btn btn-default btn-sm pull-right" %>
       </div>
       <div class="panel-body">
+        <%= form_tag root_path, method: 'get' do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", name: nil %>
+        <% end %>
         <div class="row">
           <% @contacts.each do |contact| %>
             <div class="col-md-4">

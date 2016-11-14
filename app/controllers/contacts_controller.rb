@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = @user.contacts.paginate(page: params[:page], per_page: 12)
+    @contacts = @user.contacts.search(params[:search]).paginate(page: params[:page], per_page: 12)
   end
 
   # GET /contacts/1
