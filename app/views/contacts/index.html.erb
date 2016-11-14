@@ -10,9 +10,9 @@
         <div class="row">
           <% @contacts.each do |contact| %>
             <div class="col-md-4">
-              <div class="profile-blog blog-border">
-                <%= image_tag contact.avatar.url(:thumb), class: "rounded-x" %>
-                  <!-- fix class w/ css -->
+              <a href=<%= edit_user_contact_path(@user, contact) %>>
+                <div  class="profile-blog blog-border">
+                  <%= image_tag contact.avatar.url(:thumb), class: "rounded-x" %>
                   <div class="name">
                       <strong><%= "#{contact.first_name.capitalize} #{contact.last_name.capitalize}" %></strong>
                   </div>
@@ -31,7 +31,8 @@
                       <%= contact.company.capitalize %>
                     </li>
                   </ul>
-              </div>
+                </div>
+              </a>
             </div>
           <% end %>
         </div>

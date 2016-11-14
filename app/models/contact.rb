@@ -7,7 +7,9 @@ class Contact < ApplicationRecord
     medium: '300x300>'
   },
     storage: :s3,
-    default_url: ':style/default.png'
+    default_url: ':style/default.png',
+    :url =>':s3_domain_url',
+    :path => '/:class/:attachment/:id_partition/:style/:filename'
 
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
