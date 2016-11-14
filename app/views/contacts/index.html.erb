@@ -1,38 +1,20 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Contacts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Photo</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Phone number</th>
-      <th>Company</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8"></div>
+    <%= link_to 'New Contact', new_user_contact_path(@user), class:"btn btn-success col-sm-2" %>
+  </div><br>
+  <div class="list-group">
     <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= image_tag contact.avatar.url(:thumb) %></td>
-        <td><%= contact.first_name %></td>
-        <td><%= contact.last_name %></td>
-        <td><%= contact.email %></td>
-        <td><%= contact.phone_number %></td>
-        <td><%= contact.company %></td>
-        <td><%= link_to 'Show', user_contact_path(@user, contact) %></td>
-        <td><%= link_to 'Edit', edit_user_contact_path(@user, contact) %></td>
-        <td><%= link_to 'Destroy', user_contact_path(@user, contact), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <a href=<%= user_contact_path(@user, contact) %> class="list-group-item col-sm-8">
+          <%= image_tag contact.avatar.url(:thumb) %>
+          <%= "#{contact.first_name} #{contact.last_name}" %>
+        </a>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Contact', new_user_contact_path(@user) %>
+  </div>
+</div>
