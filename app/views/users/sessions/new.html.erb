@@ -1,7 +1,6 @@
 <h2>Sign in</h2>
 
 <div class="container">
-  <div class="col-sm-2">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal col-sm-6'}) do |f| %>
     <div class="form-group">
         <%= f.label :email, class: "col-sm-2 control-label" %>
@@ -38,6 +37,4 @@
     </div>
 
     <% end %>
-
-  </div>
 </div>
