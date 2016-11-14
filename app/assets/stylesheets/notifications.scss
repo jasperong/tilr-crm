@@ -1,5 +1,5 @@
 #notice-wrapper {
-  z-index: 9999;
+  z-index: 999;
   background-color: rgba(183, 232, 146, 0.4);
   position: absolute;
   width: 100%;
@@ -7,7 +7,7 @@
 }
 
 #alert-wrapper {
-  z-index: 9999;
+  z-index: 999;
   background-color: rgba(232, 139, 80, 0.4);
   position: absolute;
   width: 100%;
@@ -19,6 +19,6 @@ p.notice, p.alert {
   text-align: center;
   margin: 0;
   font-size: 1.25rem;
-  color: #eee;
+  color: #444;
   letter-spacing: 1px;
 }
