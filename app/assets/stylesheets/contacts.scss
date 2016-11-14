@@ -1,3 +1,74 @@
 // Place all the styles related to the contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+    margin-top:20px;
+    background:#eee !important;
+}
+
+.profile .panel-profile {
+    border: none;
+    margin-bottom: 0;
+    box-shadow: none;
+}
+
+.profile .panel-heading {
+    color: #585f69;
+    background: #fff;
+    padding: 7px 15px;
+    border-bottom: solid 3px #f7f7f7;
+}
+
+.overflow-h {
+    overflow: hidden;
+}
+
+.panel-heading {
+    color: #fff;
+    padding: 5px 15px;
+}
+
+.profile .panel-title {
+    font-size: 16px;
+}
+
+.profile .profile-blog {
+    padding: 20px;
+    background: #fff;
+}
+
+.profile .blog-border {
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.profile .profile-blog img {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.rounded-x {
+    border-radius: 50% !important;
+}
+
+.profile .name {
+    overflow: hidden;
+}
+
+.profile .name strong {
+    color: #555;
+    display: block;
+    font-size: 16px;
+}
+
+.profile .name span a {
+    color: #555;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}

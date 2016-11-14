@@ -1,0 +1,24 @@
+#notice-wrapper {
+  z-index: 9999;
+  background-color: rgba(183, 232, 146, 0.4);
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+#alert-wrapper {
+  z-index: 9999;
+  background-color: rgba(232, 139, 80, 0.4);
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+p.notice, p.alert {
+  padding: 1.75rem 0;
+  text-align: center;
+  margin: 0;
+  font-size: 1.25rem;
+  color: #eee;
+  letter-spacing: 1px;
+}

@@ -9,8 +9,15 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+      <div id="notice-wrapper">
+        <p class="notice"><%= notice %></p>
+      </div>
+      <% elsif alert %>
+      <div id="alert-wrapper">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
     <%= render partial: 'layouts/nav' %>
     <%= yield %>
   </body>
