@@ -6,7 +6,13 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = @user.contacts.search(params[:search]).paginate(page: params[:page], per_page: 12)
+    @contacts = @user.contacts.search(params[:search]).paginate(page: params[:page], per_page: 1)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @contacts }
+      format.js
+    end
   end
 
   # GET /contacts/1

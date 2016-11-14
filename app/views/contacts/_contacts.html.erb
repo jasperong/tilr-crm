@@ -1,0 +1,31 @@
+<div class="row contacts-row">
+  <% @contacts.each do |contact| %>
+    <div class="col-md-4">
+      <a href=<%= user_contact_path(@user, contact) %>>
+        <div  class="profile-blog blog-border">
+          <%= image_tag contact.avatar.url(:thumb), class: "rounded-x" %>
+          <div class="name">
+            <strong><%= "#{contact.first_name.capitalize} #{contact.last_name.capitalize}" %></strong>
+          </div>
+          <div class="clearfix margin-bottom-20"></div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <i class="fa fa-envelope-o" aria-hidden="true"></i>
+              <%= contact.email %>
+            </li>
+            <li class="list-group-item">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <%= number_to_phone(contact.phone_number) %>
+            </li>
+            <li class="list-group-item">
+              <i class="fa fa-building-o" aria-hidden="true"></i>
+              <%= contact.company.capitalize %>
+            </li>
+          </ul>
+        </div>
+      </a>
+    </div>
+  <% end %>
+</div>
+<%= will_paginate @contacts, renderer: BootstrapPagination::Rails %>
+</div>
