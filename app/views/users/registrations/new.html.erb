@@ -1,54 +1,61 @@
-<h2>Sign up</h2>
-
-<div class="container">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class:'form-horizontai col-sm-6') do |f| %>
-      <%= devise_error_messages! %>
-
-      <div class="form-group row">
-          <%= f.label :first_name, class: "col-sm-2 control-label" %>
-          <div class="col-sm-6">
-              <%= f.text_field :first_name, class: "form-control",autofocus: true %>
-          </div>
+<div class="container profile">
+    <div class="panel panel-profile">
+      <div class="panel-heading overflow-h">
+        <h2 class="panel-title heading-sm pull-left">Sign Up</h2>
       </div>
+      <div class="panel-body">
+        <div class="col-sm-3"></div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class:'form-horizontal col-sm-8'}) do |f| %>
+          <%= devise_error_messages! %>
 
-      <div class="form-group row">
-          <%= f.label :last_name, class: "col-sm-2 control-label" %>
-          <div class="col-sm-6">
-              <%= f.text_field :last_name, class: "form-control",autofocus: true %>
+          <div class="form-group row">
+              <%= f.label :first_name, class: "col-sm-2 control-label" %>
+              <div class="col-sm-6">
+                  <%= f.text_field :first_name, class: "form-control",autofocus: true %>
+              </div>
           </div>
-      </div>
 
-      <div class="form-group row">
-          <%= f.label :email, class: "col-sm-2 control-label" %>
-          <div class="col-sm-6">
-              <%= f.email_field :email, class: "form-control" %>
+          <div class="form-group row">
+              <%= f.label :last_name, class: "col-sm-2 control-label" %>
+              <div class="col-sm-6">
+                  <%= f.text_field :last_name, class: "form-control",autofocus: true %>
+              </div>
           </div>
-      </div>
 
-      <div class="form-group row">
-          <%= f.label :password, class: "col-sm-2 control-label" %>
-          <div class="col-sm-6">
-              <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+          <div class="form-group row">
+              <%= f.label :email, class: "col-sm-2 control-label" %>
+              <div class="col-sm-6">
+                  <%= f.email_field :email, class: "form-control" %>
+              </div>
           </div>
-      </div>
 
-      <div class="form-group row">
-          <%= f.label :password_confirmation, class: "col-sm-2 control-label" %>
-          <div class="col-sm-6">
-              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+          <div class="form-group row">
+              <%= f.label :password, class: "col-sm-2 control-label" %>
+              <div class="col-sm-6">
+                  <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+              </div>
           </div>
-      </div>
 
-      <div class="form-group row">
-          <div class="col-sm-offset-2 col-sm-6">
-              <%= f.submit "Sign up", class: "btn btn-primary" %>
+          <div class="form-group row">
+              <%= f.label :password_confirmation, class: "col-sm-2 control-label" %>
+              <div class="col-sm-6">
+                  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+              </div>
           </div>
-      </div>
 
-      <div class="form-group row">
-          <div class="col-sm-offset-2 col-sm-6">
-              <%= render "users/shared/links" %>
+          <div class="form-group row">
+              <div class="col-sm-offset-2 col-sm-6">
+                  <%= f.submit "Sign up", class: "btn btn-primary" %>
+              </div>
           </div>
+
+          <div class="form-group row">
+              <div class="col-sm-offset-2 col-sm-6">
+                  <%= render "users/shared/links" %>
+              </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+  </div>
 </div>

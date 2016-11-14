@@ -1,63 +1,72 @@
-<div class="container">
-  <%= form_for([@user, contact], multipart: true, html: {class: 'form-horizontal col-sm-6'}) do |f| %>
-    <% if contact.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+<div class="container profile">
+    <div class="panel panel-profile">
+      <div class="panel-heading overflow-h">
+        <h2 class="panel-title heading-sm pull-left">New Contact</h2>
+      </div>
+      <div class="panel-body">
+        <div class="col-sm-3"></div>
+        <%= form_for([@user, contact], multipart: true, html: {class: 'form-horizontal col-sm-8'}) do |f| %>
+          <% if contact.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
 
-        <ul>
-        <% contact.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+              <ul>
+              <% contact.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="form-group row row">
+            <%= f.label :first_name, class: 'col-sm-2 control-label' %>
+            <div class="col-sm-6">
+              <%= f.text_field :first_name, class: 'form-control', autofocus: true %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :last_name, class: 'col-sm-2 control-label' %>
+            <div class="col-sm-6">
+              <%= f.text_field :last_name, class: 'form-control', autofocus: true  %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :email, class: 'col-sm-2 control-label' %>
+            <div class="col-sm-6">
+              <%= f.email_field :email, class: 'form-control', autofocus: true  %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :phone_number, class: 'col-sm-2 control-label' %>
+            <div class="col-sm-6">
+              <%= f.text_field :phone_number, class: 'form-control', autofocus: true  %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :company, class: 'col-sm-2 control-label' %>
+            <div class="col-sm-6">
+              <%= f.text_field :company, class: 'form-control', autofocus: true  %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :avatar, class: 'col-sm-2 control-label' %>
+            <div class="col-sm-6">
+              <%= f.file_field :avatar %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-offset-2 col-sm-6">
+              <%= f.submit "Submit", class: 'btn btn-primary' %>
+            </div>
+          </div>
         <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="form-group row row">
-      <%= f.label :first_name, class: 'col-sm-2 control-label' %>
-      <div class="col-sm-6">
-        <%= f.text_field :first_name, class: 'form-control', autofocus: true %>
       </div>
     </div>
-
-    <div class="form-group row">
-      <%= f.label :last_name, class: 'col-sm-2 control-label' %>
-      <div class="col-sm-6">
-        <%= f.text_field :last_name, class: 'form-control', autofocus: true  %>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <%= f.label :email, class: 'col-sm-2 control-label' %>
-      <div class="col-sm-6">
-        <%= f.email_field :email, class: 'form-control', autofocus: true  %>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <%= f.label :phone_number, class: 'col-sm-2 control-label' %>
-      <div class="col-sm-6">
-        <%= f.text_field :phone_number, class: 'form-control', autofocus: true  %>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <%= f.label :company, class: 'col-sm-2 control-label' %>
-      <div class="col-sm-6">
-        <%= f.text_field :company, class: 'form-control', autofocus: true  %>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <%= f.label :avatar, class: 'col-sm-2 control-label' %>
-      <div class="col-sm-6">
-        <%= f.file_field :avatar %>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <div class="col-sm-offset-2 col-sm-6">
-        <%= f.submit "Submit", class: 'btn btn-primary' %>
-      </div>
-    </div>
-  <% end %>
+  </div>
 </div>

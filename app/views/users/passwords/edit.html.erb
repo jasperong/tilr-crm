@@ -1,34 +1,41 @@
-<h2>Change your password</h2>
-
-<div class="conatiner">
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: 'form-horizontal col-sm-6' }) do |f| %>
-    <%= devise_error_messages! %>
-    <%= f.hidden_field :reset_password_token %>
-
-    <div class="form-group">
-        <%= f.label :password, "New password", class: "col-sm-2 control-label" %>
-        <div class="col-sm-6">
-            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-        </div>
+<div class="container profile">
+  <div class="panel panel-profile">
+    <div class="panel-heading overflow-h">
+      <h2 class="panel-title heading-sm pull-left">Change your password</h2>
     </div>
+    <div class="panel-body">
+      <div class="col-sm-3"></div>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: 'form-horizontal col-sm-8' }) do |f| %>
+      <%= devise_error_messages! %>
+      <%= f.hidden_field :reset_password_token %>
 
-    <div class="form-group">
-        <%= f.label :password_confirmation, "Confirm new password", class: "col-sm-2 control-label" %>
-        <div class="col-sm-6">
-            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-        </div>
-    </div>
+      <div class="form-group">
+          <%= f.label :password, "New password", class: "col-sm-2 control-label" %>
+          <div class="col-sm-6">
+              <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+          </div>
+      </div>
 
-    <div class="form-group">
-        <div class="col-sm-6 col-sm-offset-2">
-            <%= f.submit "Change my password", class: "btn btn-primary" %>
-        </div>
-    </div>
+      <div class="form-group">
+          <%= f.label :password_confirmation, "Confirm new password", class: "col-sm-2 control-label" %>
+          <div class="col-sm-6">
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+          </div>
+      </div>
 
-    <div class="form-group">
-        <div class="col-sm-6 col-sm-offset-2">
-            <%= render "users/shared/links" %>
-        </div>
+      <div class="form-group">
+          <div class="col-sm-6 col-sm-offset-2">
+              <%= f.submit "Change my password", class: "btn btn-primary" %>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <div class="col-sm-6 col-sm-offset-2">
+              <%= render "users/shared/links" %>
+          </div>
+      </div>
+      <% end %>
+      </div>
     </div>
-    <% end %>
+  </div>
 </div>
