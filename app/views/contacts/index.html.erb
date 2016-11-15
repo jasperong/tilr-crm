@@ -10,7 +10,18 @@
           <%= text_field_tag :search, params[:search], placeholder: "Search" %>
         <% end %>
 
-        <div id="contacts"><%= render 'contacts' %></div>
+        <!-- sortable method can be found in contacts_helper.rb -->
+        <%= sortable "first_name" %>
+        <%= sortable "last_name" %>
+        <%= sortable "company" %>
+
+        <%= link_to "Favorites", favorite_user_contacts_path(@user) %>
+        <%= link_to "Family", family_user_contacts_path(@user) %>
+        <%= link_to "Friends", friend_user_contacts_path(@user) %>
+        <%= link_to "Colleagues", colleague_user_contacts_path(@user) %>
+
+        <%# select_tag :sort, options_for_select([["First Name", "first_name"], ["Last Name", "last_name"]]) %>
+        <div id="contacts"><%= render "contacts" %></div>
 
     </div>
   </div>

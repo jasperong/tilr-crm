@@ -2,7 +2,14 @@ Rails.application.routes.draw do
   devise_for :users, path: '/'
 
   resources :users, only: [] do
-    resources :contacts
+    resources :contacts do
+      collection do
+        get :favorite
+        get :family
+        get :friend
+        get :colleague
+      end
+    end
   end
   # devise_for :users, controllers: {
   #       sessions: 'users/sessions'

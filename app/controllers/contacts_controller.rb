@@ -2,11 +2,15 @@ class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :load_user
+  helper_method :sort_column, :sort_direction
 
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = @user.contacts.search(params[:search]).paginate(page: params[:page], per_page: 1)
+    @contacts = @user.contacts
+                      .page(params[:page]).per_page(12)
+                      .reorder("#{sort_column} #{sort_direction}")
+                      .search(params[:search])
 
     respond_to do |format|
       format.html
@@ -18,6 +22,34 @@ class ContactsController < ApplicationController
   # GET /contacts/1
   # GET /contacts/1.json
   def show
+  end
+
+  def favorite
+    @contacts = Contact.favorite.page(params[:page]).per_page(12)
+                                .reorder("#{sort_column} #{sort_direction}")
+                                .search(params[:search])
+    render action: :index
+  end
+
+  def friend
+    @contacts = Contact.friend.page(params[:page]).per_page(12)
+                              .reorder("#{sort_column} #{sort_direction}")
+                              .search(params[:search])
+    render action: :index
+  end
+
+  def family
+    @contacts = Contact.family.page(params[:page]).per_page(12)
+                              .reorder("#{sort_column} #{sort_direction}")
+                              .search(params[:search])
+    render action: :index
+  end
+
+  def colleague
+    @contacts = Contact.colleague.page(params[:page]).per_page(12)
+                                .reorder("#{sort_column} #{sort_direction}")
+                                .search(params[:search])
+    render action: :index
   end
 
   # GET /contacts/new
@@ -83,6 +115,17 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :email, :phone_number, :company, :user_id, :avatar)
+      params.require(:contact).permit(:first_name, :last_name, :email, :phone_number,
+                                      :company, :user_id, :avatar, :favorite, :family,
+                                      :friend, :colleague)
     end
-end
+
+    ## Sanitized params for sorting
+    def sort_column
+      Contact.column_names.include?(params[:sort]) ? params[:sort] : "first_name"
+    end
+
+    def sort_direction
+      %w(asc desc).include?(params[:direction]) ? params[:direction] : "asc"
+    end
+ end
