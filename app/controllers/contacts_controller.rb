@@ -25,28 +25,28 @@ class ContactsController < ApplicationController
   end
 
   def favorite
-    @contacts = Contact.favorite.page(params[:page]).per_page(12)
+    @contacts = @user.contacts.favorite.page(params[:page]).per_page(12)
                                 .reorder("#{sort_column} #{sort_direction}")
                                 .search(params[:search])
     render action: :index
   end
 
   def friend
-    @contacts = Contact.friend.page(params[:page]).per_page(12)
+    @contacts = @user.contacts.friend.page(params[:page]).per_page(12)
                               .reorder("#{sort_column} #{sort_direction}")
                               .search(params[:search])
     render action: :index
   end
 
   def family
-    @contacts = Contact.family.page(params[:page]).per_page(12)
+    @contacts = @user.contacts.family.page(params[:page]).per_page(12)
                               .reorder("#{sort_column} #{sort_direction}")
                               .search(params[:search])
     render action: :index
   end
 
   def colleague
-    @contacts = Contact.colleague.page(params[:page]).per_page(12)
+    @contacts = @user.contacts.colleague.page(params[:page]).per_page(12)
                                 .reorder("#{sort_column} #{sort_direction}")
                                 .search(params[:search])
     render action: :index
