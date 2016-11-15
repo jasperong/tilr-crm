@@ -6,20 +6,36 @@
         <%= link_to 'New Contact', new_user_contact_path(@user), class:"btn btn-default btn-sm pull-right" %>
       </div>
       <div class="panel-body">
-        <%= form_tag root_path, method: "get", class: "contacts-search" do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search" %>
-        <% end %>
+        <div class="row">
+          <%= form_tag root_path, method: "get", class: "contacts-search form-inline col-sm-4" do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+            <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+          <% end %>
 
-        <!-- sortable method can be found in contacts_helper.rb -->
-        <%= sortable "first_name" %>
-        <%= sortable "last_name" %>
-        <%= sortable "company" %>
+          <div class="col-sm-4">
+          <!-- sortable method can be found in contacts_helper.rb -->
+            <div class="row">
+              <div class="col-md-12">
+                Sort:
+                <%= sortable "first_name" %>
+                <%= sortable "last_name" %>
+                <%= sortable "company" %>
+              </div>
+            </div>
+          </div>
 
-        <%= link_to "Favorites", favorite_user_contacts_path(@user) %>
-        <%= link_to "Family", family_user_contacts_path(@user) %>
-        <%= link_to "Friends", friend_user_contacts_path(@user) %>
-        <%= link_to "Colleagues", colleague_user_contacts_path(@user) %>
-
+          <div class="col-sm-4">
+            <div class="row">
+              <div class="col-xs-3">Filter:</div>
+              <div class="col-xs-9">
+                <%= link_to "Favorites", favorite_user_contacts_path(@user), class: "btn btn-xs btn-default" %>
+                <%= link_to "Family", family_user_contacts_path(@user), class: "btn btn-xs btn-default" %>
+                <%= link_to "Friends", friend_user_contacts_path(@user), class: "btn btn-xs btn-default" %>
+                <%= link_to "Colleagues", colleague_user_contacts_path(@user), class: "btn btn-xs btn-default" %>
+              </div>
+            </div>
+          </div>
+        </div>
         <%# select_tag :sort, options_for_select([["First Name", "first_name"], ["Last Name", "last_name"]]) %>
         <div id="contacts"><%= render "contacts" %></div>
 

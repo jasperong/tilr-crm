@@ -7,4 +7,4 @@
 
 ### For some reason, sorting by name orders contacts in a weird way, however, company sorting works just fine
 
-### Bug: search has to be submitted once before live search works
+### Bug: Live Search doesn't work after clicking HOME button, but works on refreshing home page
