@@ -12,6 +12,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get "/contacts/:provider/callback" => "contacts#import_contacts"
+  get "contacts/:provider/callback" => "contacts#import_contacts"
   root to: "contacts#index"
 end
