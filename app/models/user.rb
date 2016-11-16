@@ -23,16 +23,26 @@ class User < ApplicationRecord
     user
   end
 
+  def name_list
+    names = []
+    self.contacts.each do |cont|
+      names << "#{cont.first_name} #{cont.last_name}"
+    end
+    names
+  end
+
   def import_contacts(contacts)
     contacts.each do |contact|
-      self.contacts.create(
-        first_name: contact[:first_name],
-        last_name: contact[:last_name],
-        email: contact[:email],
-        phone_number: contact[:phone_number],
-        avatar: contact[:profile_picture],
-        company: nil
-      )
+      unless name_list.include?("#{contact.first_name} #{contact.last_name}")
+        self.contacts.create(
+          first_name: contact[:first_name],
+          last_name: contact[:last_name],
+          email: contact[:email],
+          phone_number: contact[:phone_number],
+          avatar: contact[:profile_picture],
+          company: nil
+        )
+      end
     end
   end
 end
