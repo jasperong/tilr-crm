@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
   def index
     @contacts = @user.contacts
                       .page(params[:page]).per_page(12)
-                      .reorder("#{sort_column} #{sort_direction}")
+                      .order("#{sort_column} #{sort_direction}")
                       .search(params[:search])
 
     respond_to do |format|
@@ -27,28 +27,28 @@ class ContactsController < ApplicationController
 
   def favorite
     @contacts = @user.contacts.favorite.page(params[:page]).per_page(12)
-                                .reorder("#{sort_column} #{sort_direction}")
+                                .order("#{sort_column} #{sort_direction}")
                                 .search(params[:search])
     render action: :index
   end
 
   def friend
     @contacts = @user.contacts.friend.page(params[:page]).per_page(12)
-                              .reorder("#{sort_column} #{sort_direction}")
+                              .order("#{sort_column} #{sort_direction}")
                               .search(params[:search])
     render action: :index
   end
 
   def family
     @contacts = @user.contacts.family.page(params[:page]).per_page(12)
-                              .reorder("#{sort_column} #{sort_direction}")
+                              .order("#{sort_column} #{sort_direction}")
                               .search(params[:search])
     render action: :index
   end
 
   def colleague
     @contacts = @user.contacts.colleague.page(params[:page]).per_page(12)
-                                .reorder("#{sort_column} #{sort_direction}")
+                                .order("#{sort_column} #{sort_direction}")
                                 .search(params[:search])
     render action: :index
   end
