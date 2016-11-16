@@ -20,7 +20,7 @@ This is a very simple CRM app created for Tilr's coding challenge.
 
 # TODO
 
-- Contact import from Google VERY buggy as of now
+- Contact import from Google VERY buggy for now
 
 - Fix first_name and last_name sorting
 
