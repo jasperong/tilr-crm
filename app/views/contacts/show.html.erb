@@ -1,13 +1,22 @@
 <div class="container profile">
     <div class="panel panel-profile">
       <div class="panel-heading overflow-h">
-        <h2 class="panel-title heading-sm pull-left"><%= "#{@contact.first_name} #{@contact.last_name}" %></h2>
+        <h2 class="panel-title heading-sm pull-left">
+          <% if @contact.first_name %>
+            <%= @contact.first_name%>
+          <% end %>
+          <% if @contact.last_name %>
+            <%= @contact.last_name %>
+          <% end %>
+        </h2>
         <%= link_to 'Delete', user_contact_path(@user, @contact), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger btn-xs pull-right" %>
         <%= link_to 'Edit', edit_user_contact_path(@user, @contact), class:"btn btn-primary btn-xs pull-right" %>
       </div>
       <div class="panel-body">
         <div class="col-md-4">
-          <%= image_tag @contact.avatar.url(:square), class: "rounded-x" %>
+          <% if @contact.avatar %>
+            <%= image_tag @contact.avatar.url(:square), class: "rounded-x" %>
+          <% end %>
         </div>
         <div class="col-md-8">
           <div  class="profile-blog blog-border">
@@ -15,15 +24,21 @@
             <ul class="list-group">
               <li class="list-group-item">
                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                <%= @contact.email %>
+                <% if @contact.email %>
+                  <%= @contact.email %>
+                <% end %>
               </li>
               <li class="list-group-item">
                 <i class="fa fa-phone" aria-hidden="true"></i>
-                <%= number_to_phone(@contact.phone_number) %>
+                <% if @contact.phone_number %>
+                  <%= number_to_phone(@contact.phone_number) %>
+                <% end %>
               </li>
               <li class="list-group-item">
                 <i class="fa fa-building-o" aria-hidden="true"></i>
-                <%= @contact.company.capitalize %>
+                <% if @contact.company %>
+                  <%= @contact.company.capitalize %>
+                <% end %>
               </li>
             </ul>
           </div>

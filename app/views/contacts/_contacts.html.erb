@@ -5,21 +5,29 @@
         <div  class="profile-blog blog-border">
           <%= image_tag contact.avatar.url(:thumb), class: "rounded-x" %>
           <div class="name">
-            <strong><%= "#{contact.first_name.capitalize} #{contact.last_name.capitalize}" %></strong>
+            <% if contact.first_name && contact.last_name %>
+              <strong><%= "#{contact.first_name.capitalize} #{contact.last_name.capitalize}" %></strong>
+            <% end %>
           </div>
           <div class="clearfix margin-bottom-20"></div>
           <ul class="list-group">
             <li class="list-group-item">
               <i class="fa fa-envelope-o" aria-hidden="true"></i>
-              <%= contact.email %>
+              <% if contact.email %>
+                <%= contact.email %>
+              <% end %>
             </li>
             <li class="list-group-item">
               <i class="fa fa-phone" aria-hidden="true"></i>
-              <%= number_to_phone(contact.phone_number) %>
+              <% if contact.phone_number %>
+                <%= number_to_phone(contact.phone_number) %>
+              <% end %>
             </li>
             <li class="list-group-item">
               <i class="fa fa-building-o" aria-hidden="true"></i>
-              <%= contact.company.capitalize %>
+              <% if contact.company %>
+                <%= contact.company.capitalize %>
+              <% end %>
             </li>
           </ul>
         </div>
@@ -27,6 +35,6 @@
     </div>
   <% end %>
 </div>
-<%= link_to "Import Gmail Contacts", gmail_user_contacts_path(@user) %>
+<%= link_to "Import Gmail Contacts", "/contacts/gmail" %>
 <%= will_paginate @contacts, renderer: BootstrapPagination::Rails %>
 </div>

@@ -26,11 +26,11 @@ class User < ApplicationRecord
   def import_contacts(contacts)
     contacts.each do |contact|
       self.contacts.create(
-        first_name: contact.first_name,
-        last_name: contact.last_name,
-        email: contact.email,
-        phone_number: contact.phone_number,
-        avatar: contact.profile_picture,
+        first_name: contact[:first_name],
+        last_name: contact[:last_name],
+        email: contact[:email],
+        phone_number: contact[:phone_number],
+        avatar: contact[:profile_picture],
         company: nil
       )
     end

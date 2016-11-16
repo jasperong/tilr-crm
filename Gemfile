@@ -49,7 +49,7 @@ gem 'will_paginate-bootstrap'
 
 gem 'omniauth-google-oauth2'
 
-gem 'omnicontacts'
+gem 'omnicontacts', git: "git@github.com:jasperong/omnicontacts.git"
 
 
 group :development, :test do

@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     resources :contacts do
       collection do
-        get :gmail
         get :favorite
         get :family
         get :friend
@@ -13,5 +12,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/contacts/:provider/callback" => "contacts#import_contacts"
   root to: "contacts#index"
 end
