@@ -24,6 +24,7 @@ class ContactsController < ApplicationController
   def show
   end
 
+
   def favorite
     @contacts = @user.contacts.favorite.page(params[:page]).per_page(12)
                                 .reorder("#{sort_column} #{sort_direction}")
@@ -99,6 +100,14 @@ class ContactsController < ApplicationController
       format.html { redirect_to root_path, notice: 'Contact was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+
+  def import_contacts
+    @contacts = request.env["omnicontacts.contacts"]
+    @user.import_contacts(@contacts)
+
+    redirect_to root_path
   end
 
   private

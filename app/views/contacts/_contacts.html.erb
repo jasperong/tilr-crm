@@ -27,5 +27,6 @@
     </div>
   <% end %>
 </div>
+<%= link_to "Import Gmail Contacts", gmail_user_contacts_path(@user) %>
 <%= will_paginate @contacts, renderer: BootstrapPagination::Rails %>
 </div>
