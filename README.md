@@ -13,6 +13,7 @@ This is a very simple CRM app created for Tilr's coding challenge.
 
 - Oauth sign in
 - Live seach for contacts (buggy)
+- Upload profile photos for contacts
 - Sort by name or company
 - Tag by favorite, family, friend, or colleague
 - Import contacts from gmail, (very buggy, but somehow works)
@@ -20,10 +21,9 @@ This is a very simple CRM app created for Tilr's coding challenge.
 
 # TODO
 
+- Fix front end
 - Contact import from Google VERY buggy for now
-
 - Fix first_name and last_name sorting
-
 - For some reason, sorting by name orders contacts in a weird way, however, company sorting works just fine
-
 - Bug: Live Search doesn't work after clicking HOME button, but works on refreshing home page
+- (Future) Send email by clicking contact's email address

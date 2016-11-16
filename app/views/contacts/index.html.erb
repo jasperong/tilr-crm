@@ -3,7 +3,11 @@
     <div class="panel panel-profile">
       <div class="panel-heading overflow-h">
         <h2 class="panel-title heading-sm pull-left"><i class="fa fa-vcard-o" aria-hidden="true"></i> Contacts</h2>
-        <%= link_to 'New Contact', new_user_contact_path(@user), class:"btn btn-default btn-sm pull-right" %>
+        <div class="btn-group pull-right">
+          <a class="btn btn-sm btn-danger disabled"><i class="fa fa-google-plus" style="width:16px;"></i></a>
+          <a class="btn btn-sm btn-danger" href="contacts/gmail" style="width:12em;"> Import Google Contacts</a>
+        </div>
+        <%= link_to 'New Contact', new_user_contact_path(@user), class:"btn btn-info btn-sm pull-right" %>
       </div>
       <div class="panel-body">
         <div class="row">
