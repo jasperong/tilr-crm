@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:jasperong/omnicontacts.git
+  remote: https://github.com/jasperong/omnicontacts.git
   revision: 4afce16e68b5a04e6a8dd110e647ae618f942d2d
   specs:
     omnicontacts (0.3.9)
