@@ -10,14 +10,28 @@ body{
 * {
   color: tomato !important;
   border-color: tomato !important;
+  font-family: 'Raleway', sans-serif;
 }
 
 .pull-right {
   margin-left: 3px;
 }
 
+.filters {
+  margin-bottom: 5px;
+}
+
+.btn-xs {
+  margin-bottom: 3px !important;
+}
+
 .contacts-search {
   margin-bottom: 5px;
+}
+
+.pagination > .active > span {
+  background-color: tomato !important;
+  color: #fff !important;
 }
 
 .profile .panel-profile {

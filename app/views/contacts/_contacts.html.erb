@@ -6,7 +6,7 @@
           <%= image_tag contact.avatar.url(:thumb), class: "rounded-x" %>
           <div class="name">
             <% if contact.first_name && contact.last_name %>
-              <strong><%= "#{contact.first_name.capitalize} #{contact.last_name.capitalize}" %></strong>
+              <h3><%= "#{contact.first_name.capitalize} #{contact.last_name.capitalize}" %></h3>
             <% end %>
           </div>
           <div class="clearfix margin-bottom-20"></div>
