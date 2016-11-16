@@ -9,8 +9,8 @@
             <%= @contact.last_name %>
           <% end %>
         </h2>
-        <%= link_to 'Delete', user_contact_path(@user, @contact), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger btn-xs pull-right" %>
-        <%= link_to 'Edit', edit_user_contact_path(@user, @contact), class:"btn btn-primary btn-xs pull-right" %>
+        <%= link_to 'Delete', user_contact_path(@user, @contact), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-default btn-xs pull-right" %>
+        <%= link_to 'Edit', edit_user_contact_path(@user, @contact), class:"btn btn-default btn-xs pull-right" %>
       </div>
       <div class="panel-body">
         <div class="col-md-4">

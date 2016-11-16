@@ -4,15 +4,15 @@
       <div class="panel-heading overflow-h">
         <h2 class="panel-title heading-sm pull-left"><i class="fa fa-vcard-o" aria-hidden="true"></i> Contacts</h2>
         <div class="btn-group pull-right">
-          <a class="btn btn-sm btn-danger disabled"><i class="fa fa-google-plus" style="width:16px;"></i></a>
-          <a class="btn btn-sm btn-danger" href="contacts/gmail" style="width:12em;"> Import Google Contacts</a>
+          <a class="btn btn-sm btn-default disabled"><i class="fa fa-google-plus" style="width:16px;"></i></a>
+          <a class="btn btn-sm btn-default" href="contacts/gmail" style="width:12em;"> Import Google Contacts</a>
         </div>
-        <%= link_to 'New Contact', new_user_contact_path(@user), class:"btn btn-info btn-sm pull-right" %>
+        <%= link_to 'New Contact', new_user_contact_path(@user), class:"btn btn-default btn-sm pull-right" %>
       </div>
       <div class="panel-body">
         <div class="row">
           <%= form_tag root_path, method: "get", class: "contacts-search form-inline col-sm-4" do %>
-            <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+            <%= text_field_tag :search, params[:search], class: "form-control" %>
             <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
           <% end %>
 
