@@ -8,6 +8,7 @@ This is a very simple CRM app created for Tilr's coding challenge.
 
 - Rails 5
 - Ruby 2.3.1
+- Live link at tilr-crm.herokuapp.com
 
 ### Features
 
